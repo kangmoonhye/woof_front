@@ -219,39 +219,25 @@
 
             </div>
 
+            <script src="../js/ordersCreate.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
             <script>
                 const sendData = async () => {
                     event.preventDefault();
-
-                    let name = document
-                        .getElementById("name")
-                        .value;
-                    let phoneNumber = document
-                        .getElementById("phoneNumber")
-                        .value;
-                    let time = document
-                        .getElementById("time")
-                        .value;
-                    let orderDetails = document
-                        .getElementById("orderDetails")
-                        .value;
-                    let place = document
-                        .getElementById("place")
-                        .value;
-                    let productManagerIdx = document
-                        .getElementById("productManagerIdx")
-                        .value;
-                    let productCeoIdx = document
-                        .getElementById("productCeoIdx")
-                        .value;
-                    let memberIdx = document
-                        .getElementById("memberIdx")
-                        .value;
-
-                    // let password = document.getElementById("password").value; let name =
-                    // document.getElementById("name").value;
-
+        
+                    let name = document.getElementById("name").value;
+                    let phoneNumber = document.getElementById("phoneNumber").value;
+                    let time = document.getElementById("time").value;
+                    let orderDetails = document.getElementById("orderDetails").value;
+                    let place = document.getElementById("place").value;
+                    let productManagerIdx = document.getElementById("productManagerIdx").value;
+                    let productCeoIdx = document.getElementById("productCeoIdx").value;
+                    let memberIdx = document.getElementById("memberIdx").value;
+        
+                    // let password = document.getElementById("password").value;
+                    // let name = document.getElementById("name").value;
+        
+        
                     let data = {
                         name: name,
                         phoneNumber: phoneNumber,
@@ -262,28 +248,24 @@
                         productCeoIdx: productCeoIdx,
                         memberIdx: memberIdx
                     };
-
+        
                     let orderDto = JSON.stringify(data);
-                    // let abcd = new FormData(); abcd.append(     "orderDto",     new Blob([json],
-                    // {type: "application/json"}) );
-
+        
                     console.log(orderDto)
-
-                    let response = await axios.post(
-                        "http://localhost:8080/orders/create",
-                        orderDto,
-                        {
+        
+                    let response = await axios.post("http://localhost:8080/orders/create",
+                        orderDto, {
                             headers: {
                                 'Content-Type': 'application/json'
                             }
-                        }
+                    }
                     );
                     if (response.data !== null) {
                         window.location.href = "./orderSuccess.html"
                     }
-
                     console.log(response, data);
-
+        
+        
                 };
             </script>
         </body>
