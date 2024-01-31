@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>OrderList</title>
+        <link rel="stylesheet" href="../css/resetfile.css">
+        <link rel="stylesheet" href="../css/orderList.css">
+    </head>
+    <body>
+        <ul class="orders-list"></ul>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="../js/orderList.js"></script>
+        <script>
+            const doGetordersList = async () => {
+              try {
+                let orderList = await getOrdersList();
+          
+                orderList.map((orders) => {
+                  let liTag = document.createElement("li");
+                  liTag.setAttribute("class", "orders-list-item");
+                  liTag.innerHTML =
+                    '<div class="orders-list-item-wrapper all">' +
+                      '<a href="./ordersDetail.html">' +
+                        '<div class="orders-idx-wrapper ordersDiv">' +
+                          '<strong class="orders-idx">주문번호 : ' + orders.idx + '</strong>' +
+                        '</div>' +
+                        '<div class="orders-phoneNumber-wrapper ordersDiv">' +
+                          '<strong class="orders-phoneNumber">전화번호 : ' + orders.phoneNumber + '</strong>' +
+                        '</div>' +
+                        '<div class="orders-time-wrapper ordersDiv">' +
+                          '<strong class="orders-time">예약시간 : ' + orders.time + '</strong>' +
+                        '</div>' +
+                        '<div class="orders-place-wrapper ordersDiv">' +
+                          '<strong class="orders-place">예약장소 : ' + orders.place + '</strong>' +
+                        '</div>' +
+                      '</a>' +
+                    '</div>';
+          
+                  document
+                  .getElementsByClassName("orders-list")[0]
+                  .appendChild(liTag);
+                });
+          
+                return test;
+              } catch {
+                return "error!";
+              }
+            };
+            doGetordersList();
+          </script>
+        
+          
+    </body>
+</html>

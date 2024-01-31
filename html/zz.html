@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>OrderList</title>
+    </head>
+    <body>
+        <h1>hi</h1>
+        <ul class="orders-list"></ul>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script>
+
+            const doGetOrdersList = async () => {
+                try {
+                    let orderList = await getOrdersList();
+
+                    orderList.map((orders) => {
+                        let liTag = document.createElement("li");
+                        liTag.setAttribute("class", "orders-list-item");
+                        liTag.innerHTML =
+                            '<div class="orders-list-item-wrapper">' +
+                            '<a href="./ordersDetail.html">' +
+                            '<div class="orders-storeName-wrapper">' +
+                            '<strong class="orders-storeName">' + orders.storeName + '</strong>' +
+                            '</div>' +
+                            '<div class="orders-productName-wrapper">' +
+                            '<strong class="orders-productName">' + orders.productName + '</strong>' +
+                            '</div>' +
+                            '<div class="orders-contents-wrapper">' +
+                            '<strong class="orders-contents">' + orders.contents + '</strong>' +
+                            '</div>' +
+                            '<div class="orders-phoneNumber-wrapper">' +
+                            '<strong class="orders-phoneNumber">' + orders.phoneNumber + '</strong>' +
+                            '</div>' +
+                            '<div class="orders-price-wrapper">' +
+                            '<strong class="orders-price">' + orders.price + '</strong>' +
+                            '</div>' +
+                            '</a>' +
+                            '</div>';
+
+                        document
+                        .getElementsByClassName("orders-list")[0]
+                        .appendChild(liTag);
+                    });
+
+                    return orderList;
+                } catch {
+                    return "error!";
+                }
+            };
+            
+            doGetOrdersList();
+        </script>
+    </body>
+</html>

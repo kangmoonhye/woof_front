@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../css/ordersuccess.css">
+        <title>ordersSuccess</title>
+    </head>
+    <body>
+        <div class="orderform">
+            <h1>성공적으로 예약이 완료되었습니다</h1>
+            <form  onsubmit="orderList()">
+                <input id="idx" type="text" placeholder="나의 주문번호">
+                <input class="btn" type="submit" value="나의 예약 리스트 확인하기">
+            </form>
+            <script src="../js/orderRead.js"></script>
+        </div>
+            <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+            <script>
+                // const orderList = async () => {
+                //     event.preventDefault();
+
+                //     let response = await axios.get("http://localhost:8080/orders/list",);
+                //     if (response.data !== null) {
+                //         window.location.href = "./orderList.html"
+                //     }
+
+                //     console.log(response);
+
+                // };
+
+                const sendData = async () => {
+                    event.preventDefault();
+
+                    let idx = document
+                        .getElementById("idx")
+                        .value;
+
+                    let data = {
+                        idx : idx
+                    };
+
+                    // let orderDto = JSON.stringify(data);
+
+                    console.log(idx)
+
+                    let number = await axios.get("http://localhost:8080/orders/read?idx=",);
+                    if (number.data !== null) {
+                        window.location.href = "./orderDetail.html"
+                    }
+
+                    console.log(response, data);
+
+                };
+            </script>
+        </body>
+    </html>

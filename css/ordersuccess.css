@@ -1,0 +1,15 @@
+.orderform{
+    width: 200px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin: 50px auto;
+    
+}
+.btn{
+    background-color: #fae14a;
+    margin-top: 20px;
+    border: none;
+    padding: 15px;
+}
+}
