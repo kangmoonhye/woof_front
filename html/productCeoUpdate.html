@@ -143,57 +143,17 @@
             </header>
 
             <body>
-
-                <button onclick="window.location.href='/productCeoCreate.html'">상품 등록</button>
-                
-              </div>
-              <ul class="productCeo-list"></ul>
-                <br><br><br>
-              </div>
-        
-        
-        
-                <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-                <script src="../js/productCeoList.js"></script>
-                <script>
-                  const doGetProductCeoList = async () => {
-                    try {
-                      let productList = await getProductList();
-            
-                      productList.map((productCeo) => {
-                        let liTag = document.createElement("li");
-                        liTag.setAttribute("class", "productCeo-list-item");
-                        liTag.innerHTML =
-                          '<br><br><div class="productCeo-list-item-wrapper"><a href="/html/productCeoDetail.html?idx=' +
-                          productCeo.idx + '">' +
-                          '<div class="productCeo-image-wrapper"><img src="' +
-                          productCeo.filename + '" >'+
-                          '</div>' +
-                          productCeo.storeName +
-                          '<div class="productCeo-storeName-wrapper"><strong class="productCeo-storeName"></strong></div>' +
-                          productCeo.productName +
-                          '<div class="productCeo-productName-wrapper"><strong class="productCeo-productName"></strong></div>' +
-                          productCeo.contents +
-                          '<div class="productCeo-contents-wrapper"><strong class="productCeo-contents"></strong></div>' +
-                          productCeo.phoneNumber +
-                          '<div class="productCeo-phoneNumber-wrapper"><strong class="productCeo-phoneNumber"></strong></div>' +
-                          productCeo.price +
-                          '<div class="productCeo-price-wrapper"><strong class="productCeo-price"></strong></div>' +
-                          '</a><div class="productCeo-bottom-wrapper"><button class="productCeo-like"><i class="fa-regular fa-heart"></i>999+</button> <a href="#" class="productCeo-review"><span class="review"><i class="fa-regular fa-comment"></i>500+</span>';
-                        
-                          document
-                          .getElementsByClassName("productCeo-list")[0]
-                          .appendChild(liTag);
-                      });
-            
-                      return test;
-                    } catch {
-                      return "error!";
-                    }
-                  };
-                  doGetProductCeoList();
-                </script>
-        
+                설명 수정 <br><br><br>
+                가게 이름 <input type="text" id="storeName" /><br>
+                상품 이름 <input type="text" id="productName" /><br>
+                상품 설명 <input type="text" id="contents" /><br>
+                전화 번호 <input type="text" id="phoneNumber" /><br>
+                가     격 <input type="text" id="price" /><br>
+                <input type="hidden" id="idx" />
+                <br>
+                <button id="send">상품 수정</button>
+                <br><br>
+                <script src="../js/productCeoUpdate.js"></script>
               </body>
             <footer>
                 <div class="footTop">
