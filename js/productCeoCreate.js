@@ -13,7 +13,7 @@ const getProductCeoCreate = async (storeName, productName, phoneNumber, price, c
         price: price,
         contents: contents
     };
-    formData.append('postProductReq', new Blob([JSON.stringify(jsonData)], { type: 'application/json' }));
+    formData.append('postProductReq', new Blob([JSON.stringify(jsonData)], {type: 'application/json'}));
 
     // 파일 추가 (만약 파일이 선택되었다면)
     if (file) {
